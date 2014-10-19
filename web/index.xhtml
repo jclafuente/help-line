@@ -4,16 +4,29 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html">
     <h:head>
         <title>Help Line</title>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
     </h:head>
     <h:body>
         <div class="ui-widget ui-widget-header" />
 
-		<h:panelGrid columns="1" width="100%" style="text-align: center;">
-			<h:outputText value="Welcome to Help Line" style="font-size: 18px; font-weight: bold; " />
-			<h:outputText value="Version 1.0" style="font-size: 16px; font-style: italic;" />
-		</h:panelGrid>
+        <h:panelGrid columns="1" width="100%" style="text-align: center;">
+            <h:outputText value="Welcome to Help Line" style="font-size: 18px; font-weight: bold; " />
+            <h:outputText value="Version 1.0" style="font-size: 16px; font-style: italic;" />
+        </h:panelGrid>
 
-		<div class="ui-widget ui-widget-header"></div>
+        <div class="ui-widget ui-widget-header"></div>
+        <br />
+        <h:link outcome="/pages/categoria/List" value="Show All Categoria Items"/>
+        <br />
+        <h:link outcome="/pages/instruccion/List" value="Show All Instruccion Items"/>
+        <br />
+        <h:link outcome="/pages/pregunta/List" value="Show All Pregunta Items"/>
+        <br />
+        <h:link outcome="/pages/respuesta/List" value="Show All Respuesta Items"/>
     </h:body>
+
+
+
+
 </html>
 
