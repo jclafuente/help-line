@@ -22,8 +22,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -37,7 +35,6 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Categoria.findByNombre", query = "SELECT c FROM Categoria c WHERE c.nombre = :nombre"),
     @NamedQuery(name = "Categoria.findByDescripcion", query = "SELECT c FROM Categoria c WHERE c.descripcion = :descripcion"),
     @NamedQuery(name = "Categoria.findByEstado", query = "SELECT c FROM Categoria c WHERE c.estado = :estado")})
-@XmlRootElement
 public class Categoria implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -105,7 +102,6 @@ public class Categoria implements Serializable {
         this.estado = estado;
     }
 
-    @XmlTransient
     public List<Pregunta> getPreguntaList() {
         return preguntaList;
     }

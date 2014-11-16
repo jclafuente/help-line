@@ -26,7 +26,7 @@ import javax.ws.rs.Produces;
  * @author jlafuente
  */
 @Stateless
-@Path("help.line.entities.instruccion")
+@Path("instruccion")
 public class InstruccionREST extends AbstractFacade<Instruccion> {
     @PersistenceContext(unitName = "help-linePU")
     private EntityManager em;

@@ -21,7 +21,6 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -32,10 +31,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Instruccion.findAll", query = "SELECT i FROM Instruccion i"),
     @NamedQuery(name = "Instruccion.findById", query = "SELECT i FROM Instruccion i WHERE i.id = :id"),
-    @NamedQuery(name = "Instruccion.findByOrden", query = "SELECT i FROM Instruccion i WHERE i.orden = :orden"),
     @NamedQuery(name = "Instruccion.findByIndicacion", query = "SELECT i FROM Instruccion i WHERE i.indicacion = :indicacion"),
     @NamedQuery(name = "Instruccion.findByEstado", query = "SELECT i FROM Instruccion i WHERE i.estado = :estado")})
-@XmlRootElement
 public class Instruccion implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -45,11 +42,7 @@ public class Instruccion implements Serializable {
     private Integer id;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "orden")
-    private int orden;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 1024)
+    @Size(min = 1, max = 2024)
     @Column(name = "indicacion")
     private String indicacion;
     @Basic(optional = false)
@@ -67,9 +60,8 @@ public class Instruccion implements Serializable {
         this.id = id;
     }
 
-    public Instruccion(Integer id, int orden, String indicacion, boolean estado) {
+    public Instruccion(Integer id, String indicacion, boolean estado) {
         this.id = id;
-        this.orden = orden;
         this.indicacion = indicacion;
         this.estado = estado;
     }
@@ -80,14 +72,6 @@ public class Instruccion implements Serializable {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public int getOrden() {
-        return orden;
-    }
-
-    public void setOrden(int orden) {
-        this.orden = orden;
     }
 
     public String getIndicacion() {

@@ -7,6 +7,9 @@ package help.line.services;
 
 import com.google.gson.Gson;
 import help.line.beans.CategoriaFacade;
+import help.line.entities.Categoria;
+import java.util.ArrayList;
+import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.ws.rs.Consumes;
@@ -32,8 +35,17 @@ public class CategoriaREST {
     public String findCategorias() {
 
         Gson gson = new Gson();
-        System.out.println("hols");
-        return gson.toJson(categoriaFacade.findAll());
+        // Inicializacion de objetos para el response
+        Categoria categoria;
+        List<Categoria> result = new ArrayList<Categoria>();
+        // Reasinacion de informacion necesaria
+        for (Categoria c : categoriaFacade.findAll()) {
+            categoria = new Categoria();
+            categoria.setNombre(c.getNombre());
+            result.add(categoria);
+        }
+
+        return gson.toJson(result);
     }
 
 }

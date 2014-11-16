@@ -24,8 +24,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -36,9 +34,8 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "Pregunta.findAll", query = "SELECT p FROM Pregunta p"),
     @NamedQuery(name = "Pregunta.findById", query = "SELECT p FROM Pregunta p WHERE p.id = :id"),
-    @NamedQuery(name = "Pregunta.findByProblema", query = "SELECT p FROM Pregunta p WHERE p.problema = :problema"),
+    @NamedQuery(name = "Pregunta.findByCuestion", query = "SELECT p FROM Pregunta p WHERE p.cuestion = :cuestion"),
     @NamedQuery(name = "Pregunta.findByEstado", query = "SELECT p FROM Pregunta p WHERE p.estado = :estado")})
-@XmlRootElement
 public class Pregunta implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -49,8 +46,8 @@ public class Pregunta implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 512)
-    @Column(name = "problema")
-    private String problema;
+    @Column(name = "cuestion")
+    private String cuestion;
     @Basic(optional = false)
     @NotNull
     @Column(name = "estado")
@@ -68,9 +65,9 @@ public class Pregunta implements Serializable {
         this.id = id;
     }
 
-    public Pregunta(Integer id, String problema, boolean estado) {
+    public Pregunta(Integer id, String cuestion, boolean estado) {
         this.id = id;
-        this.problema = problema;
+        this.cuestion = cuestion;
         this.estado = estado;
     }
 
@@ -82,12 +79,12 @@ public class Pregunta implements Serializable {
         this.id = id;
     }
 
-    public String getProblema() {
-        return problema;
+    public String getCuestion() {
+        return cuestion;
     }
 
-    public void setProblema(String problema) {
-        this.problema = problema;
+    public void setCuestion(String cuestion) {
+        this.cuestion = cuestion;
     }
 
     public boolean getEstado() {
@@ -106,7 +103,6 @@ public class Pregunta implements Serializable {
         this.categoria = categoria;
     }
 
-    @XmlTransient
     public List<Respuesta> getRespuestaList() {
         return respuestaList;
     }

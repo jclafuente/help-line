@@ -7,40 +7,40 @@
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
-            <h:outputText value="#{bundle.ListCategoriaTitle}"></h:outputText>
+            <h:outputText value="#{helpline.ListCategoriaTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
             <h:form styleClass="jsfcrud_list_form">
                 <h:panelGroup id="messagePanel" layout="block">
                     <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
                 </h:panelGroup>
-                <h:outputText escape="false" value="#{bundle.ListCategoriaEmpty}" rendered="#{categoriaController.items.rowCount == 0}"/>
+                <h:outputText escape="false" value="#{helpline.ListCategoriaEmpty}" rendered="#{categoriaController.items.rowCount == 0}"/>
                 <h:panelGroup rendered="#{categoriaController.items.rowCount > 0}">
                     <h:outputText value="#{categoriaController.pagination.pageFirstItem + 1}..#{categoriaController.pagination.pageLastItem + 1}/#{categoriaController.pagination.itemsCount}"/>&nbsp;
-                    <h:commandLink action="#{categoriaController.previous}" value="#{bundle.Previous} #{categoriaController.pagination.pageSize}" rendered="#{categoriaController.pagination.hasPreviousPage}"/>&nbsp;
-                    <h:commandLink action="#{categoriaController.next}" value="#{bundle.Next} #{categoriaController.pagination.pageSize}" rendered="#{categoriaController.pagination.hasNextPage}"/>&nbsp;
+                    <h:commandLink action="#{categoriaController.previous}" value="#{helpline.Previous} #{categoriaController.pagination.pageSize}" rendered="#{categoriaController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{categoriaController.next}" value="#{helpline.Next} #{categoriaController.pagination.pageSize}" rendered="#{categoriaController.pagination.hasNextPage}"/>&nbsp;
                     <h:dataTable value="#{categoriaController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCategoriaTitle_id}"/>
+                                <h:outputText value="#{helpline.ListCategoriaTitle_id}"/>
                             </f:facet>
                             <h:outputText value="#{item.id}"/>
                         </h:column>
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCategoriaTitle_nombre}"/>
+                                <h:outputText value="#{helpline.ListCategoriaTitle_nombre}"/>
                             </f:facet>
                             <h:outputText value="#{item.nombre}"/>
                         </h:column>
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCategoriaTitle_descripcion}"/>
+                                <h:outputText value="#{helpline.ListCategoriaTitle_descripcion}"/>
                             </f:facet>
                             <h:outputText value="#{item.descripcion}"/>
                         </h:column>
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCategoriaTitle_estado}"/>
+                                <h:outputText value="#{helpline.ListCategoriaTitle_estado}"/>
                             </f:facet>
                             <h:outputText value="#{item.estado}"/>
                         </h:column>
@@ -48,19 +48,19 @@
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:commandLink action="#{categoriaController.prepareView}" value="#{bundle.ListCategoriaViewLink}"/>
+                            <h:commandLink action="#{categoriaController.prepareView}" value="#{helpline.ListCategoriaViewLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{categoriaController.prepareEdit}" value="#{bundle.ListCategoriaEditLink}"/>
+                            <h:commandLink action="#{categoriaController.prepareEdit}" value="#{helpline.ListCategoriaEditLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{categoriaController.destroy}" value="#{bundle.ListCategoriaDestroyLink}"/>
+                            <h:commandLink action="#{categoriaController.destroy}" value="#{helpline.ListCategoriaDestroyLink}"/>
                         </h:column>
                     </h:dataTable>
                 </h:panelGroup>
                 <br />
-                <h:commandLink action="#{categoriaController.prepareCreate}" value="#{bundle.ListCategoriaCreateLink}"/>
+                <h:commandLink action="#{categoriaController.prepareCreate}" value="#{helpline.ListCategoriaCreateLink}"/>
                 <br />
                 <br />
-                <h:link outcome="/index" value="#{bundle.ListCategoriaIndexLink}"/>
+                <h:link outcome="/index" value="#{helpline.ListCategoriaIndexLink}"/>
             </h:form>
         </ui:define>
     </ui:composition>

@@ -24,8 +24,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -36,10 +34,8 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "Respuesta.findAll", query = "SELECT r FROM Respuesta r"),
     @NamedQuery(name = "Respuesta.findById", query = "SELECT r FROM Respuesta r WHERE r.id = :id"),
-    @NamedQuery(name = "Respuesta.findBySintesis", query = "SELECT r FROM Respuesta r WHERE r.sintesis = :sintesis"),
     @NamedQuery(name = "Respuesta.findBySolucion", query = "SELECT r FROM Respuesta r WHERE r.solucion = :solucion"),
     @NamedQuery(name = "Respuesta.findByEstado", query = "SELECT r FROM Respuesta r WHERE r.estado = :estado")})
-@XmlRootElement
 public class Respuesta implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -47,11 +43,6 @@ public class Respuesta implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 512)
-    @Column(name = "sintesis")
-    private String sintesis;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 1024)
@@ -74,9 +65,8 @@ public class Respuesta implements Serializable {
         this.id = id;
     }
 
-    public Respuesta(Integer id, String sintesis, String solucion, boolean estado) {
+    public Respuesta(Integer id, String solucion, boolean estado) {
         this.id = id;
-        this.sintesis = sintesis;
         this.solucion = solucion;
         this.estado = estado;
     }
@@ -87,14 +77,6 @@ public class Respuesta implements Serializable {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public String getSintesis() {
-        return sintesis;
-    }
-
-    public void setSintesis(String sintesis) {
-        this.sintesis = sintesis;
     }
 
     public String getSolucion() {
@@ -113,7 +95,6 @@ public class Respuesta implements Serializable {
         this.estado = estado;
     }
 
-    @XmlTransient
     public List<Instruccion> getInstruccionList() {
         return instruccionList;
     }

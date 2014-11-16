@@ -82,10 +82,10 @@ public class RespuestaController implements Serializable {
     public String create() {
         try {
             getFacade().create(current);
-            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("RespuestaCreated"));
+            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/helpline").getString("RespuestaCreated"));
             return prepareCreate();
         } catch (Exception e) {
-            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
+            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/helpline").getString("PersistenceErrorOccured"));
             return null;
         }
     }
@@ -99,10 +99,10 @@ public class RespuestaController implements Serializable {
     public String update() {
         try {
             getFacade().edit(current);
-            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("RespuestaUpdated"));
+            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/helpline").getString("RespuestaUpdated"));
             return "View";
         } catch (Exception e) {
-            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
+            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/helpline").getString("PersistenceErrorOccured"));
             return null;
         }
     }
@@ -132,9 +132,9 @@ public class RespuestaController implements Serializable {
     private void performDestroy() {
         try {
             getFacade().remove(current);
-            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("RespuestaDeleted"));
+            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/helpline").getString("RespuestaDeleted"));
         } catch (Exception e) {
-            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
+            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/helpline").getString("PersistenceErrorOccured"));
         }
     }
 

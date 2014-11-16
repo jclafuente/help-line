@@ -7,46 +7,40 @@
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
-            <h:outputText value="#{bundle.ListRespuestaTitle}"></h:outputText>
+            <h:outputText value="#{helpline.ListRespuestaTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
             <h:form styleClass="jsfcrud_list_form">
                 <h:panelGroup id="messagePanel" layout="block">
                     <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
                 </h:panelGroup>
-                <h:outputText escape="false" value="#{bundle.ListRespuestaEmpty}" rendered="#{respuestaController.items.rowCount == 0}"/>
+                <h:outputText escape="false" value="#{helpline.ListRespuestaEmpty}" rendered="#{respuestaController.items.rowCount == 0}"/>
                 <h:panelGroup rendered="#{respuestaController.items.rowCount > 0}">
                     <h:outputText value="#{respuestaController.pagination.pageFirstItem + 1}..#{respuestaController.pagination.pageLastItem + 1}/#{respuestaController.pagination.itemsCount}"/>&nbsp;
-                    <h:commandLink action="#{respuestaController.previous}" value="#{bundle.Previous} #{respuestaController.pagination.pageSize}" rendered="#{respuestaController.pagination.hasPreviousPage}"/>&nbsp;
-                    <h:commandLink action="#{respuestaController.next}" value="#{bundle.Next} #{respuestaController.pagination.pageSize}" rendered="#{respuestaController.pagination.hasNextPage}"/>&nbsp;
+                    <h:commandLink action="#{respuestaController.previous}" value="#{helpline.Previous} #{respuestaController.pagination.pageSize}" rendered="#{respuestaController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{respuestaController.next}" value="#{helpline.Next} #{respuestaController.pagination.pageSize}" rendered="#{respuestaController.pagination.hasNextPage}"/>&nbsp;
                     <h:dataTable value="#{respuestaController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListRespuestaTitle_id}"/>
+                                <h:outputText value="#{helpline.ListRespuestaTitle_id}"/>
                             </f:facet>
                             <h:outputText value="#{item.id}"/>
                         </h:column>
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListRespuestaTitle_sintesis}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.sintesis}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListRespuestaTitle_solucion}"/>
+                                <h:outputText value="#{helpline.ListRespuestaTitle_solucion}"/>
                             </f:facet>
                             <h:outputText value="#{item.solucion}"/>
                         </h:column>
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListRespuestaTitle_estado}"/>
+                                <h:outputText value="#{helpline.ListRespuestaTitle_estado}"/>
                             </f:facet>
                             <h:outputText value="#{item.estado}"/>
                         </h:column>
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListRespuestaTitle_pregunta}"/>
+                                <h:outputText value="#{helpline.ListRespuestaTitle_pregunta}"/>
                             </f:facet>
                             <h:outputText value="#{item.pregunta}"/>
                         </h:column>
@@ -54,19 +48,19 @@
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:commandLink action="#{respuestaController.prepareView}" value="#{bundle.ListRespuestaViewLink}"/>
+                            <h:commandLink action="#{respuestaController.prepareView}" value="#{helpline.ListRespuestaViewLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{respuestaController.prepareEdit}" value="#{bundle.ListRespuestaEditLink}"/>
+                            <h:commandLink action="#{respuestaController.prepareEdit}" value="#{helpline.ListRespuestaEditLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{respuestaController.destroy}" value="#{bundle.ListRespuestaDestroyLink}"/>
+                            <h:commandLink action="#{respuestaController.destroy}" value="#{helpline.ListRespuestaDestroyLink}"/>
                         </h:column>
                     </h:dataTable>
                 </h:panelGroup>
                 <br />
-                <h:commandLink action="#{respuestaController.prepareCreate}" value="#{bundle.ListRespuestaCreateLink}"/>
+                <h:commandLink action="#{respuestaController.prepareCreate}" value="#{helpline.ListRespuestaCreateLink}"/>
                 <br />
                 <br />
-                <h:link outcome="/index" value="#{bundle.ListRespuestaIndexLink}"/>
+                <h:link outcome="/index" value="#{helpline.ListRespuestaIndexLink}"/>
             </h:form>
         </ui:define>
     </ui:composition>
