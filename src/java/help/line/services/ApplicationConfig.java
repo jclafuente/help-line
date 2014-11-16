@@ -30,10 +30,10 @@ public class ApplicationConfig extends Application {
      * If required, comment out calling this method in getClasses().
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
-        resources.add(help.line.services.CategoriaFacadeREST.class);
-        resources.add(help.line.services.InstruccionFacadeREST.class);
-        resources.add(help.line.services.PreguntaFacadeREST.class);
-        resources.add(help.line.services.RespuestaFacadeREST.class);
+        resources.add(help.line.services.CategoriaREST.class);
+        resources.add(help.line.services.InstruccionREST.class);
+        resources.add(help.line.services.PreguntaREST.class);
+        resources.add(help.line.services.RespuestaREST.class);
     }
     
 }
