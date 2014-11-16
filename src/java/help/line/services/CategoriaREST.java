@@ -32,7 +32,7 @@ public class CategoriaREST {
     public String findCategorias() {
 
         Gson gson = new Gson();
-
+        System.out.println("hols");
         return gson.toJson(categoriaFacade.findAll());
     }
 
