@@ -6,6 +6,7 @@
 
 package help.line.services;
 
+import help.line.beans.AbstractFacade;
 import help.line.entities.Pregunta;
 import java.util.List;
 import javax.ejb.Stateless;
