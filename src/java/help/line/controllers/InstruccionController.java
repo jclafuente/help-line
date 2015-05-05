@@ -3,7 +3,7 @@ package help.line.controllers;
 import help.line.entities.Instruccion;
 import help.line.controllers.util.JsfUtil;
 import help.line.controllers.util.PaginationHelper;
-import help.line.beans.InstruccionFacade;
+import help.line.services.InstruccionFacade;
 
 import java.io.Serializable;
 import java.util.ResourceBundle;
@@ -25,7 +25,7 @@ public class InstruccionController implements Serializable {
     private Instruccion current;
     private DataModel items = null;
     @EJB
-    private help.line.beans.InstruccionFacade ejbFacade;
+    private InstruccionFacade ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
 

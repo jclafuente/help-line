@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{helpline.ViewInstruccionTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{helpline.ViewInstruccionLabel_id}"/>
+                    <h:outputText value="#{instruccionController.selected.id}" title="#{helpline.ViewInstruccionTitle_id}"/>
+                    <h:outputText value="#{helpline.ViewInstruccionLabel_indicacion}"/>
+                    <h:outputText value="#{instruccionController.selected.indicacion}" title="#{helpline.ViewInstruccionTitle_indicacion}"/>
+                    <h:outputText value="#{helpline.ViewInstruccionLabel_estado}"/>
+                    <h:outputText value="#{instruccionController.selected.estado}" title="#{helpline.ViewInstruccionTitle_estado}"/>
+                    <h:outputText value="#{helpline.ViewInstruccionLabel_respuesta}"/>
+                    <h:outputText value="#{instruccionController.selected.respuesta}" title="#{helpline.ViewInstruccionTitle_respuesta}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{instruccionController.destroyAndView}" value="#{helpline.ViewInstruccionDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{helpline.ViewInstruccionEditLink}"/>
+                <br />
+                <h:commandLink action="#{instruccionController.prepareCreate}" value="#{helpline.ViewInstruccionCreateLink}" />
+                <br />
+                <h:commandLink action="#{instruccionController.prepareList}" value="#{helpline.ViewInstruccionShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{helpline.ViewInstruccionIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
