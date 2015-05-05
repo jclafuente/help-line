@@ -3,7 +3,7 @@ package help.line.controllers;
 import help.line.entities.Respuesta;
 import help.line.controllers.util.JsfUtil;
 import help.line.controllers.util.PaginationHelper;
-import help.line.beans.RespuestaFacade;
+import help.line.services.RespuestaFacade;
 
 import java.io.Serializable;
 import java.util.ResourceBundle;
@@ -25,7 +25,7 @@ public class RespuestaController implements Serializable {
     private Respuesta current;
     private DataModel items = null;
     @EJB
-    private help.line.beans.RespuestaFacade ejbFacade;
+    private RespuestaFacade ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
 

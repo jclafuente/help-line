@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{helpline.ViewPreguntaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{helpline.ViewPreguntaLabel_id}"/>
+                    <h:outputText value="#{preguntaController.selected.id}" title="#{helpline.ViewPreguntaTitle_id}"/>
+                    <h:outputText value="#{helpline.ViewPreguntaLabel_cuestion}"/>
+                    <h:outputText value="#{preguntaController.selected.cuestion}" title="#{helpline.ViewPreguntaTitle_cuestion}"/>
+                    <h:outputText value="#{helpline.ViewPreguntaLabel_estado}"/>
+                    <h:outputText value="#{preguntaController.selected.estado}" title="#{helpline.ViewPreguntaTitle_estado}"/>
+                    <h:outputText value="#{helpline.ViewPreguntaLabel_categoria}"/>
+                    <h:outputText value="#{preguntaController.selected.categoria}" title="#{helpline.ViewPreguntaTitle_categoria}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{preguntaController.destroyAndView}" value="#{helpline.ViewPreguntaDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{helpline.ViewPreguntaEditLink}"/>
+                <br />
+                <h:commandLink action="#{preguntaController.prepareCreate}" value="#{helpline.ViewPreguntaCreateLink}" />
+                <br />
+                <h:commandLink action="#{preguntaController.prepareList}" value="#{helpline.ViewPreguntaShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{helpline.ViewPreguntaIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

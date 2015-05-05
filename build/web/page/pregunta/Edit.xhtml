@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{helpline.EditPreguntaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{helpline.EditPreguntaLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{preguntaController.selected.id}" title="#{helpline.EditPreguntaTitle_id}" required="true" requiredMessage="#{helpline.EditPreguntaRequiredMessage_id}"/>
+                    <h:outputLabel value="#{helpline.EditPreguntaLabel_cuestion}" for="cuestion" />
+                    <h:inputText id="cuestion" value="#{preguntaController.selected.cuestion}" title="#{helpline.EditPreguntaTitle_cuestion}" required="true" requiredMessage="#{helpline.EditPreguntaRequiredMessage_cuestion}"/>
+                    <h:outputLabel value="#{helpline.EditPreguntaLabel_estado}" for="estado" />
+                    <h:inputText id="estado" value="#{preguntaController.selected.estado}" title="#{helpline.EditPreguntaTitle_estado}" required="true" requiredMessage="#{helpline.EditPreguntaRequiredMessage_estado}"/>
+                    <h:outputLabel value="#{helpline.EditPreguntaLabel_categoria}" for="categoria" />
+                    <h:selectOneMenu id="categoria" value="#{preguntaController.selected.categoria}" title="#{helpline.EditPreguntaTitle_categoria}" required="true" requiredMessage="#{helpline.EditPreguntaRequiredMessage_categoria}">
+                        <f:selectItems value="#{categoriaController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{preguntaController.update}" value="#{helpline.EditPreguntaSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{helpline.EditPreguntaViewLink}"/>
+                <br />
+                <h:commandLink action="#{preguntaController.prepareList}" value="#{helpline.EditPreguntaShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{helpline.EditPreguntaIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
