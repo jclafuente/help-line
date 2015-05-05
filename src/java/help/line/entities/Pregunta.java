@@ -3,11 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package help.line.entities;
 
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.Cacheable;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -40,6 +42,7 @@ import javax.validation.constraints.Size;
 	    + "WHERE p.estado = :estado"),
     @NamedQuery(name = "Pregunta.findByCategoriaId", query = "SELECT p FROM Pregunta p "
 	    + "WHERE p.estado = :estado and p.categoria.id = :categoriaId")})
+@Cacheable(false)
 public class Pregunta implements Serializable {
 
     private static final long serialVersionUID = 1L;
