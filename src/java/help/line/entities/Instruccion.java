@@ -7,6 +7,7 @@ package help.line.entities;
 
 import java.io.Serializable;
 import javax.persistence.Basic;
+import javax.persistence.Cacheable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -37,6 +38,7 @@ import javax.validation.constraints.Size;
 	    + "WHERE i.estado = :estado"),
     @NamedQuery(name = "Instruccion.findByRespuestaId", query = "SELECT i FROM Instruccion i "
 	    + "WHERE i.estado = :estado and i.respuesta.id = :respuestaId")})
+@Cacheable(false)
 public class Instruccion implements Serializable {
 
     private static final long serialVersionUID = 1L;

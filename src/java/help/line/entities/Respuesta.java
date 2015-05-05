@@ -3,11 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package help.line.entities;
 
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.Cacheable;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -38,8 +40,11 @@ import javax.validation.constraints.Size;
 	    + "WHERE r.solucion = :solucion"),
     @NamedQuery(name = "Respuesta.findByEstado", query = "SELECT r FROM Respuesta r "
 	    + "WHERE r.estado = :estado"),
+    @NamedQuery(name = "Respuesta.findByDescripcion", query = "SELECT r FROM Respuesta r "
+	    + "WHERE r.descripcion = :descripcion"),
     @NamedQuery(name = "Respuesta.findByRespuestaId", query = "SELECT r FROM Respuesta r "
 	    + "WHERE r.estado = :estado and r.pregunta.id = :preguntaId")})
+@Cacheable(false)
 public class Respuesta implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -54,6 +59,12 @@ public class Respuesta implements Serializable {
     @Size(min = 1, max = 1024)
     @Column(name = "solucion")
     private String solucion;
+    
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 2048)
+    @Column(name = "descripcion")
+    private String descripcion;
     
     @Basic(optional = false)
     @NotNull
@@ -74,9 +85,10 @@ public class Respuesta implements Serializable {
 	this.id = id;
     }
 
-    public Respuesta(Integer id, String solucion, boolean estado) {
+    public Respuesta(Integer id, String solucion, String descripcion, boolean estado) {
 	this.id = id;
 	this.solucion = solucion;
+	this.descripcion = descripcion;
 	this.estado = estado;
     }
 
@@ -94,6 +106,14 @@ public class Respuesta implements Serializable {
 
     public void setSolucion(String solucion) {
 	this.solucion = solucion;
+    }
+
+    public String getDescripcion() {
+	return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+	this.descripcion = descripcion;
     }
 
     public boolean getEstado() {

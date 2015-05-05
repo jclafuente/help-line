@@ -40,6 +40,7 @@ public class RespuestaREST {
 	    respuesta = new Respuesta();
 	    respuesta.setId(r.getId());
 	    respuesta.setSolucion(r.getSolucion());
+	    respuesta.setDescripcion(r.getDescripcion());
 	    respuesta.setEstado(r.getEstado());
 
 	    result.add(respuesta);
@@ -70,6 +71,7 @@ public class RespuestaREST {
 	    respuesta = new Respuesta();
 	    respuesta.setId(r.getId());
 	    respuesta.setSolucion(r.getSolucion());
+	    respuesta.setDescripcion(r.getDescripcion());
 	    respuesta.setEstado(r.getEstado());
 	    result.add(respuesta);
 	}

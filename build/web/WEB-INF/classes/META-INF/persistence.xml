@@ -1,8 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.1" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-  <persistence-unit name="help-linePU" transaction-type="JTA">
-    <jta-data-source>jdbc/help_line</jta-data-source>
-    <exclude-unlisted-classes>false</exclude-unlisted-classes>
-    <properties/>
-  </persistence-unit>
+    <persistence-unit name="help-linePU" transaction-type="JTA">
+	<jta-data-source>jdbc/help_line</jta-data-source>
+	<exclude-unlisted-classes>false</exclude-unlisted-classes>
+	<shared-cache-mode>NONE</shared-cache-mode>
+	<properties>
+
+	    <property name="eclipselink.cache.shared.default" value="false"/>
+            <property name="eclipselink.jdbc.cache-statements" value="false"/>
+            <property name="eclipselink.cache.shared.Customer" value="false"/>
+            <property name="eclipselink.jdbc.batch-writing" value="JDBC"/>
+            <property name="eclipselink.persistence-context.close-on-commit" value="true"/>
+            <property name="eclipselink.persistence-context.persist-on-commit" value="false"/>
+            <property name="eclipselink.cache.size.default" value="0"/>
+            <property name="eclipselink.cache.type.default" value="None"/>
+	    
+	    <property name="eclipselink.query-results-cache" value="false"/>
+	    
+	</properties>
+    </persistence-unit>
 </persistence>
