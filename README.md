@@ -1,4 +1,4 @@
 help-line
 =========
 
-Proyecto de tesis de Henry Santana 2
+Aplicacion movil orientada a Help Desk
